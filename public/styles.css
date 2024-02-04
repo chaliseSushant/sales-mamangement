@@ -1,0 +1,133 @@
+.main-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.btn-search {
+  background-color: #3498db;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+}
+
+.btn-search:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+.custom-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  margin-left: 100px;
+}
+
+.search_input {
+  font-size: 14px;
+  padding: 7px 10px;
+  width: 100%;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #c4d1eb;
+  border-radius: 5px;
+  box-shadow: 3px 3px 2px 0px #e2e2e2;
+  transition: 0.3s ease;
+}
+
+.search_input::placeholder {
+  color: #dddddd;
+}
+
+.btn_import {
+  width: 20%;
+  background-color: #64d09c;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+table.sales-table {
+  border: 1px solid #1c6ea4;
+  background-color: #eeeeee;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.sales-table td,
+table.sales-table th {
+  border: 1px solid #aaaaaa;
+  padding: 4px 4px;
+}
+table.sales-table tbody td {
+  font-size: 13px;
+}
+table.sales-table tr:nth-child(even) {
+  background: #e5f0f5;
+}
+table.sales-table thead {
+  background: #8c93a4;
+  border-bottom: 2px solid #444444;
+}
+table.sales-table thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  border-left: 1px solid #d0e4f5;
+}
+table.sales-table thead th:first-child {
+  border-left: none;
+}
+
+table.sales-table tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #d0e4f5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #d0e4f5 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #dcebf7 0%,
+    #d4e6f6 66%,
+    #d0e4f5 100%
+  );
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #d0e4f5 100%);
+  border-top: 2px solid #444444;
+}
+table.sales-table tfoot td {
+  font-size: 14px;
+}
+table.sales-table tfoot .links {
+  text-align: right;
+}
+table.sales-table tfoot .links a {
+  display: inline-block;
+  background: #1c6ea4;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
