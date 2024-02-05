@@ -1,10 +1,6 @@
 <?php
 
-namespace app;
-
-use database\Database;  
-use app\Customers;  
-use app\Products;  
+include 'Database.php';
 
 
 class Sales {
@@ -16,34 +12,28 @@ class Sales {
     }
 
     public function addSales($file){
-        $uploadDir = 'uploads/';
-        $uploadFile = $uploadDir . basename($_FILES['file_json']['name']);
-        $fileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
-
-        // // Check if the file is a JSON file
-        // if ($fileType !== 'json') {
-        //     die("Error: Please upload a valid JSON file.");
-        // }
-
-        // // Move the uploaded file to a specific directory
-        // if (move_uploaded_file($_FILES['file_json']['tmp_name'], $uploadFile)) {
-        //     echo "File is valid, and was successfully uploaded.\n";
-
-        //     // Read JSON file content
-        //     $jsonContent = file_get_contents($uploadFile);
-        //     $jsonData = json_decode($jsonContent, true);
-
-
-        //     // Connect to the database
-        //     $customers = new Customers();
-        //     //$query = "INSERT INTO customers (customer_id, customer_name,customer_mail) VALUES (?, ?,?)"
-
-        //     // Insert data into the database
-           
-
-        //     echo "Data successfully inserted into the database.";
-        // } else {
-        //     echo "Error uploading the file.";
-        // }
+        // var_dump($file);
+        // $uploadDir = 'uploads/';
+        // $uploadFile = $uploadDir . basename($_FILES['file_json']['name']);
+        // $fileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
+        $fileName = $file['file_json']['name'];
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+        $tmpName = $file['file_json']['tmp_name'];
+        // Check if the file is a JSON file
+        if ($fileType !== 'json') {
+            die("Error: Please upload a valid JSON file.");
+        }
+        // Read JSON file content
+        $jsonContent = file_get_contents($tmpName);
+        // Move the uploaded file to a specific directory
+       // Decode JSON data
+       $salesData = json_decode($jsonContent, true);
+       $customers = [];
+       foreach($salesData as $data){
+            array_push($customers, $data['customer_name'], $data['customer_email']);
+            
+       }
+        
+       var_dump($data);
     }
 }

@@ -1,9 +1,8 @@
 <?php
-    include './app/Sales.php';
+
+    include_once('./app/Sales.php');
     $sales = new Sales();
-    echo "this is it";
-    //var_dump($sales);
-    if($_SERVER['REQUEST_METHOD' == 'POST']){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
          $addSales = $sales->addSales($_FILES);
      }
@@ -14,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <link rel="stylesheet" type="text/css" href="./public/styles.css"/>
     <title>Sales Management</title>
 </head>
 <body>

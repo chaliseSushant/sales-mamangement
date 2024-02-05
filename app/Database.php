@@ -1,13 +1,13 @@
 <?php
-namespace database;
+
 
 //include_once('./config/dbconfig.php');
 
 class Database {
-    public $host = 'mysql';
-    public $user = 'root';
-    public $password = 'root';
-    public $database = 'sales_management';
+    private $host = 'localhost';
+    private $user = 'root';
+    private $password = '';
+    private $database = 'sales_management';
 
     public $link;
     public $error;
@@ -16,16 +16,24 @@ class Database {
         $this->dbConnect();
     }
 
-    public function dbConnect(){
+    protected function dbConnect(){
         try
         {
-            $this->link = new PDO("mysql:host=".$host.";dbname=".$database,$user,$password);
+            $this->link = new PDO("mysql:host=".$this->host.";dbname=".$this->database,$this->user,$this->password);
             $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e)
         {
             echo("Error: " . $e->getMessage());
         }
+    }
+
+    public function read($query){
+        
+    }
+
+    public function insert($query, $data){
+
     }
 
 }

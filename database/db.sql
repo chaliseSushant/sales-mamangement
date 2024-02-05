@@ -2,6 +2,7 @@
 CREATE TABLE customers (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(100)
+    customer_email VARCHAR(100)
 );
 
 -- Table for Products
