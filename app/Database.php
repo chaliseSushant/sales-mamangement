@@ -33,7 +33,7 @@ class Database {
     }
 
     public function insert($query, $data){
-
+        
     }
 
 }

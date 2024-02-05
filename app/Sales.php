@@ -30,7 +30,10 @@ class Sales {
        $salesData = json_decode($jsonContent, true);
        $customers = [];
        foreach($salesData as $data){
-            array_push($customers, $data['customer_name'], $data['customer_email']);
+        $customer_query = "INSERT INTO customers(customer_name,customer_email) VALUES(:name,:email)";
+        $customer_data = [":name"=>$data['customer_name'],":email"=>$data['customer_email']];
+        $customer = new Customer();
+        array_push($customers, $data['customer_name'], $data['customer_email']);
             
        }
         
