@@ -10,7 +10,7 @@
   width: 50%;
 }
 
-.filter-form {
+.form-section {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
@@ -25,7 +25,8 @@
   text-decoration: none;
   border: none;
   cursor: pointer;
-  width: 15%;
+  width: 20%;
+  margin-left: 10px;
 }
 
 .btn-search:hover {
@@ -37,8 +38,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 50%;
-  margin-left: 100px;
+  width: 60%;
 }
 
 .search_input {
@@ -59,8 +59,8 @@
 }
 
 .btn_import {
-  width: 20%;
-  background-color: #64d09c;
+  width: 30%;
+  background-color: #49d993;
   border-radius: 5px;
   font-family: Arial;
   color: #ffffff;
@@ -70,6 +70,24 @@
   border: none;
   cursor: pointer;
 }
+
+.btn_import:hover {
+  background: #77e899;
+  text-decoration: none;
+}
+
+.file_input {
+  width: 64%;
+  margin-top: 5px;
+}
+.file-import-form {
+  width: 40%;
+}
+.filter-form {
+  float: right;
+  width: 60%;
+  display: flex;
+}
 table.sales-table {
   border: 1px solid #1c6ea4;
   background-color: #eeeeee;
@@ -77,6 +95,7 @@ table.sales-table {
   text-align: center;
   border-collapse: collapse;
 }
+
 table.sales-table td,
 table.sales-table th {
   border: 1px solid #aaaaaa;
