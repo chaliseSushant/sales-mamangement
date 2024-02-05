@@ -9,7 +9,8 @@ class Database {
     private $password = '';
     private $database = 'sales_management';
 
-    public $link;
+    private $link;
+    private $stmt;
     public $error;
 
     public function __construct() {
@@ -28,12 +29,48 @@ class Database {
         }
     }
 
-    public function read($query){
-        
-    }
+    public function query($query)
+	{
+		$this->stmt = $this->link->prepare($query);
+	}	
+	
+	public function bind($param, $value, $type = null)
+	{
+		if(is_null($type))
+		{
+			switch(true)
+			{
+				case is_int($value);
+					$type = PDO::PARAM_INT;
+					break;
+				case is_bool($value);
+					$type = PDO::PARAM_BOOL;
+					break;
+				case is_null($value);
+					$type = PDO::PARAM_NULL;
+					break;
+				default;
+					$type = PDO::PARAM_STR;
+				
+			}
+		}
+		$this->stmt->bindValue($param, $value, $type); 	
+	}
 
-    public function insert($query, $data){
-        
-    }
+	public function execute($array = null)
+	{
+		return $this->stmt->execute($array);
+	}
+
+	public function lastInsertId()
+	{
+		return $this->link->lastInsertId();
+	}
+
+    public function result($array = null)
+	{
+		$this->execute($array);
+		return $this->stmt->fetch();
+	}
 
 }

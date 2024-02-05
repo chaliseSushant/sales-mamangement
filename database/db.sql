@@ -1,6 +1,6 @@
 -- Table for Customers
 CREATE TABLE customers (
-    customer_id INT PRIMARY KEY,
+    customer_id INT NOT NULL AUTO_INCREMENT,
     customer_name VARCHAR(100)
     customer_email VARCHAR(100)
 );

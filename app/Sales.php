@@ -1,6 +1,6 @@
 <?php
 
-include 'Database.php';
+include 'Customers.php';
 
 
 class Sales {
@@ -30,13 +30,13 @@ class Sales {
        $salesData = json_decode($jsonContent, true);
        $customers = [];
        foreach($salesData as $data){
-        $customer_query = "INSERT INTO customers(customer_name,customer_email) VALUES(:name,:email)";
-        $customer_data = [":name"=>$data['customer_name'],":email"=>$data['customer_email']];
-        $customer = new Customer();
-        array_push($customers, $data['customer_name'], $data['customer_email']);
+       
+        $customer = new Customers($data['customer_name'],$data['customer_mail']);
+        $customer_id = $customer->save();
+
+       // array_push($customers, $data['customer_name'], $data['customer_email']);
             
        }
         
-       var_dump($data);
     }
 }
