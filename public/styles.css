@@ -125,7 +125,7 @@ table.sales-table thead th:first-child {
 table.sales-table tfoot {
   font-size: 14px;
   font-weight: bold;
-  color: #ffffff;
+  color: #635a5a;
   background: #d0e4f5;
   background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #d0e4f5 100%);
   background: -webkit-linear-gradient(

@@ -16,7 +16,9 @@ class Database {
     public function __construct() {
         $this->dbConnect();
     }
-
+	/**
+	 * Connect to database
+	 */
     protected function dbConnect(){
         try
         {
@@ -29,11 +31,21 @@ class Database {
         }
     }
 
+	/**
+	 * Query a SQL Statement
+	 * @param {String} $query
+	 */
     public function query($query)
 	{
 		$this->stmt = $this->link->prepare($query);
 	}	
 	
+	/**
+	 * Bind params to query
+	 * @param {String} $param
+	 * @param {Integer | Boolean | Null} $value
+	 * @param {String} $type
+	 */
 	public function bind($param, $value, $type = null)
 	{
 		if(is_null($type))
@@ -56,7 +68,7 @@ class Database {
 		}
 		$this->stmt->bindValue($param, $value, $type); 	
 	}
-
+	
 	public function execute($array = null)
 	{
 		return $this->stmt->execute($array);
@@ -71,6 +83,12 @@ class Database {
 	{
 		$this->execute($array);
 		return $this->stmt->fetch();
+	}
+
+	public function resultSet($array = null)
+	{
+		$this->execute($array);
+		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 }
